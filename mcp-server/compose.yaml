@@ -1,0 +1,12 @@
+services:
+  pdf-inspector-mcp:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      MCP_API_TOKEN: ${MCP_API_TOKEN:-}
+      OCR_LANG: ${OCR_LANG:-por+eng}
+      MAX_PDF_BYTES: ${MAX_PDF_BYTES:-26214400}
+      ALLOW_PRIVATE_URLS: "false"
+      ALLOW_LOCAL_PATHS: "false"
+    restart: unless-stopped
